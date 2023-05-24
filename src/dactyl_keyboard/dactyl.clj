@@ -14,7 +14,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (def nrows 5)
-(def ncols 7)
+(def ncols 6)
 
 (def α (/ π 12))                        ; curvature of the columns
 (def β (/ π 36))                        ; curvature of the rows
@@ -22,14 +22,14 @@
 (def centercol 4)                       ; controls left-right tilt / tenting (higher number is more tenting)
 (def tenting-angle (/ π 12))            ; or, change this for more precise tenting control
 
-(def pinky-15u true)                   ; controls whether the outer column uses 1.5u keys
+(def pinky-15u false)                   ; controls whether the outer column uses 1.5u keys
 (def first-15u-row 0)                   ; controls which should be the first row to have 1.5u keys on the outer column
 (def last-15u-row 3)                    ; controls which should be the last row to have 1.5u keys on the outer column
 
-(def extra-row true)                   ; adds an extra bottom row to the outer columns
-(def inner-column true)                ; adds an extra inner column (two less rows than nrows)
-(def thumb-style "cf")                ; toggles between "default", "mini", and "cf" thumb cluster
-
+(def extra-row false)                   ; adds an extra bottom row to the outer columns
+(def inner-column false)                ; adds an extra inner column (two less rows than nrows)
+(def thumb-style "cf")                  ; toggles between "default", "mini", and "cf" thumb cluster
+(def connector-notch false)             ; toogles if there should be a cutout for connectors / board
 (def column-style :standard)
 
 (defn column-offset [column]
@@ -44,14 +44,14 @@
 
 (def thumb-offsets [6 -3 7])
 
-(def keyboard-z-offset 8)               ; controls overall height; original=9 with centercol=3; use 16 for centercol=2
+(def keyboard-z-offset 9)               ; controls overall height; original=9 with centercol=3; use 16 for centercol=2
 
-(def extra-width 2.5)                   ; extra space between the base of keys; original= 2
+(def extra-width 2.0)                   ; extra space between the base of keys; original= 2
 (def extra-height 1.0)                  ; original= 0.5
 
 (def wall-z-offset -8)                 ; length of the first downward-sloping part of the wall (negative)
 (def wall-xy-offset 5)                  ; offset in the x and/or y direction for the first downward-sloping part of the wall (negative)
-(def wall-thickness 2)                  ; wall thickness parameter; originally 5
+(def wall-thickness 4)                  ; wall thickness parameter; originally 5
 
 ;; Settings for column-style == :fixed
 ;; The defaults roughly match Maltron settings
@@ -1435,6 +1435,13 @@
                (key-place lastcol (inc row) web-post-tr))))
 ))))
 
+(def connector-notch-cut (if connector-notch
+  (union
+    usb-holder-space
+    trrs-notch
+    usb-holder-notch
+  )))
+
 (def model-right (difference
                    (union
                      key-holes
@@ -1447,9 +1454,7 @@
                      thumb-connector-type
                      (difference (union case-walls
                                         screw-insert-outers)
-                                 usb-holder-space
-                                 trrs-notch
-                                 usb-holder-notch
+                                 connector-notch-cut
                                  screw-insert-holes))
                    (translate [0 0 -20] (cube 350 350 40))))
 
