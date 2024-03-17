@@ -1,0 +1,57 @@
+repo_name: LaggAt/dactyl-manuform
+report_id: 4ddf8d9a8332aee8efcacbacb58f3371
+version: 0.1
+repo_type: Public
+timestamp: '2024-03-17T13:49:49+00:00'
+requested_by: carbonfet
+provider: github
+branch: master
+detected_tools_count: 4
+tools:
+- name: Clojure
+  description: A dynamic programming language that targets the Java Virtual Machine
+  website_url: http://clojure.org/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1003/Clojure_300x300.png
+  detection_source_url: https://github.com/LaggAt/dactyl-manuform
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/LaggAt/dactyl-manuform
+  detection_source: Repo Metadata
+- name: scad-clj
+  description: OpenSCAD DSL in Clojure
+  package_url: https://clojars.org/scad-clj
+  version: 0.4.0
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/clojars/image.png
+  detection_source_url: https://github.com/LaggAt/dactyl-manuform/blob/master/project.clj
+  detection_source: project.clj
+  last_updated_by: Matt Adereth
+  last_updated_on: 2015-12-02 05:19:52.000000000 Z
+- name: unicode-math
+  description: A Clojure library designed to let you painfully write easily readable
+    math
+  package_url: https://clojars.org/unicode-math
+  version: 0.2.0
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/clojars/image.png
+  detection_source_url: https://github.com/LaggAt/dactyl-manuform/blob/master/project.clj
+  detection_source: project.clj
+  last_updated_by: Matt Adereth
+  last_updated_on: 2015-03-06 23:26:01.000000000 Z
